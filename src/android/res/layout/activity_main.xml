@@ -8,9 +8,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.zhh.MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:orientation="vertical"
+        android:paddingTop="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务器地址"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/request_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="源手机号"
+            android:textSize="20dp"/>
+        
+        <EditText
+            android:id="@+id/source_phone_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:phoneNumber="true" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="目标手机号"
+            android:textSize="20dp"/>
+        
+        <EditText
+            android:id="@+id/target_phone_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:phoneNumber="true" />
+        
+        <Button 
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存参数"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:onClick="saveConfig"/>
+        
+        <Button 
+            android:id="@+id/runstop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="运行"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:onClick="runOrStop"/>
+    </LinearLayout>
 
 </RelativeLayout>

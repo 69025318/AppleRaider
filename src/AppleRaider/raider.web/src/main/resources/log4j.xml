@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="ELP-ALL" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${be.log.all.path}" />
+        <param name="append" value="true" />
+        <param name="datePattern" value="'_'yyyy-MM-dd" />
+        <param name="encoding" value="UTF-8" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %t [%F:%L] %-5p : %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="ELP-ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${be.log.error.path}" />
+        <param name="append" value="true" />
+        <param name="datePattern" value="'_'yyyy-MM-dd" />
+        <param name="threshold" value="ERROR" />
+        <param name="encoding" value="UTF-8" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %t [%F:%L] %-5p : %m%n" />
+        </layout>
+    </appender>
+
+
+    <logger name="org.springframework" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    
+    <logger name="com.fund99.etrading.vip" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+
+
+    <logger name="org.I0Itec" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    
+    <logger name="org.apache.zookeeper" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="com.mybatis" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="org.apache.ibatis" additivity="true">
+        <level value="DEBUG" />
+        <appender-ref ref="ELP-ALL" />
+    </logger>
+    <logger name="java.sql.Connection" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="java.sql.Statement" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="java.sql.PreparedStatement" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="java.sql.ResultSet" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="org.apache" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    <logger name="com.alibaba" additivity="true">
+        <level value="ERROR" />
+        <appender-ref ref="ELP-ERROR" />
+    </logger>
+    
+    <!--ibatis log 输出-->
+	<logger name="com.ibatis" additivity="true">   
+	   <level value="DEBUG" />  
+        <appender-ref ref="ELP-ALL" />    
+	</logger>   
+	<logger name="java.sql.Connection" additivity="true">   
+	   <level value="DEBUG" />   
+       <appender-ref ref="ELP-ALL" />   
+	</logger>   
+	<logger name="java.sql.Statement" additivity="true">   
+	   <level value="DEBUG" />   
+	</logger>   
+	<logger name="java.sql.PreparedStatement" additivity="true">   
+	   <level value="DEBUG" />   
+	   <appender-ref ref="ELP-ALL" />   
+	</logger>   
+	<logger name="java.sql.ResultSet" additivity="true">   
+	   <level value="DEBUG" />   
+	   <appender-ref ref="ELP-ALL" />   
+	</logger>   
+	
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="ELP-ALL" />
+        <appender-ref ref="ELP-ERROR" />
+    </root>
+</log4j:configuration>

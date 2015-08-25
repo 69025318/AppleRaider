@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>BankEngine</display-name>
+	<description>BankEngine DUBBO Application</description>
+
+	
+
+	<servlet>
+		<servlet-name>engineController</servlet-name>
+		<servlet-class>com.fund.common.engine.EngineControllerServlet</servlet-class>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>engineController</servlet-name>
+		<url-pattern>/engine/*.htm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>htffund</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:/spring/htffund-servlet.xml</param-value>
+        </init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>htffund</servlet-name>
+		<url-pattern>bankEngine/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>dubboMonitor</servlet-name>
+		<servlet-class>com.alibaba.dubbo.container.page.PageServlet</servlet-class>
+		<init-param>
+			<param-name>contextPath</param-name>
+			<param-value>/dubbo/</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dubboMonitor</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	
+    <context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:spring/spring-be-biz.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+</web-app>

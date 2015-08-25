@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group>
+        <property name="be.config.file.root.path" description="ebank配置文件根目录" defaultValue="/srv/wars/dev/config"/>
+        <property name="be.log.all.path" description="log4j-elp-all.log目录" defaultValue="/srv/logs/dev/bankengine/elp-all.log" />
+        <property name="be.log.error.path" description="log4j-elp-error.log目录" defaultValue="/srv/logs/dev/bankengine/elp-error.log" />
+    	<property name="be.refreshCmb2Key" description="招行交易异常时刷新密钥，只有生产时才设为Y" defaultValue="N" />
+    	<property name="be.canSendSms" description="是否允许银行通道发送手机短信，只有生产或者内测环境才可以设置为Y" defaultValue="N" />
+    	<property name="be.isBetaEnv" description="是否为内测环境" defaultValue="N" />
+    	<property name="be.bankcommand.version" description="银行指令的版本号" defaultValue="7.0.BETA" />
+    	
+    	<property name="be.isNeedToRunEngine" description="是否启动银行引擎" defaultValue="Y" />
+    </group>
+    <script>
+        <generate template="EBankResources.properties" />
+        <generate template="log4j.xml" />
+        <generate template="ehcache.xml" />
+    </script>
+</config>

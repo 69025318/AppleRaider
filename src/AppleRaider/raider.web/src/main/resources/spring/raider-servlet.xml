@@ -28,7 +28,7 @@
     </bean>
 
 	<!-- enable component scanning (beware that this does not enable mapper scanning!) -->
-    <context:component-scan base-package="com.htffund.etrade.bankengine.web.controller" />
+    <context:component-scan base-package="com.raider.web.controller" />
 
    	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
    	    <property name="messageConverters">

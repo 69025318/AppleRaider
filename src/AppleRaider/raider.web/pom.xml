@@ -5,22 +5,24 @@
 	<description>封装与所有银行之间的接口和通道</description>
 	
 	<parent>
-		<groupId>com.htffund.etrade</groupId>
-		<artifactId>bankengine-parent</artifactId>
-		<version>1.2.0-SNAPSHOT</version>
+		<groupId>com.appleRaider</groupId>
+		<artifactId>appleRaider-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>bankengine.web</artifactId>
+	<artifactId>raider.web</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
-	   	<bankengine.service.version>1.2.0-SNAPSHOT</bankengine.service.version>
-		<bankengine.model.version>1.2.0-SNAPSHOT</bankengine.model.version>
-	   	<bankengine.dao.version>1.2.0-SNAPSHOT</bankengine.dao.version>
-	   	<bankengine.biz.version>1.2.0-SNAPSHOT</bankengine.biz.version>
-	   	<spring.version>3.2.5.RELEASE</spring.version>
    	</properties>
-   	
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+	</dependencies>
 	<build>
-    	
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -53,38 +55,11 @@
                    </execution>
                </executions>
             </plugin>
-            
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>com.htffund.etrade</groupId>
-			<artifactId>bankengine.biz</artifactId>
-			<version>${bankengine.biz.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.htffund.etrade</groupId>
-			<artifactId>bankengine.dao</artifactId>
-			<version>${bankengine.dao.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.htffund.etrade</groupId>
-			<artifactId>bankengine.model</artifactId>
-			<version>${bankengine.model.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.htffund.etrade</groupId>
-			<artifactId>bankengine.service</artifactId>
-			<version>${bankengine.service.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-	</dependencies>
 </project>

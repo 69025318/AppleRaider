@@ -3,51 +3,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.htffund.etrade</groupId>
-		<artifactId>bankengine-parent</artifactId>
-		<version>1.2.0-SNAPSHOT</version>
+        <groupId>com.appleRaider</groupId>
+        <artifactId>appleRaider-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<name>bankengine.service</name>
-	<description>银行引擎的服务接口</description>
+	<name>raider.service</name>
+	<description>服务层</description>
 	
-	<artifactId>bankengine.service</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<artifactId>raider.service</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	
 	<properties>
-		<bankengine.model.version>1.2.0-SNAPSHOT</bankengine.model.version>
 	</properties>
 	
 	<dependencies>
-		<dependency>
-			<groupId>com.htffund.etrade</groupId>
-			<artifactId>bankengine.model</artifactId>
-			<version>${bankengine.model.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fund99.etrading</groupId>
-			<artifactId>htf-common</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		 </dependency>
-
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.5.5-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>log4j</artifactId>
-                    <groupId>log4j</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
         </dependency>
 	</dependencies>
 
@@ -63,22 +36,6 @@
                 <compilerArgument>-XDignore.symbol.file</compilerArgument>
             </configuration>
         </plugin>
-            <plugin>
-                <groupId>com.alibaba.citrus.tool</groupId>
-                <artifactId>autoconfig-maven-plugin</artifactId>
-                <version>1.2</version>
-                <configuration>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>autoconfig</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
